@@ -45,6 +45,16 @@ namespace autonevter
             //set { tipus = value; }
         }
 
+        public Auto(string gyarto, string tipus, int evjarat, string motortipus, string uzemanyag, double atlagfogyasztas)
+        {
+            this.gyarto = gyarto;
+            this.tipus = tipus;
+            this.evjarat = evjarat;
+            this.motortipus = motortipus;
+            this.uzemanyag = uzemanyag;
+            this.atlagfogyasztas = atlagfogyasztas;
+        }
+
         public Auto(string gyarto, string tipus, int evjarat, string motortipus)
         {
             this.gyarto = gyarto;
@@ -68,5 +78,31 @@ namespace autonevter
             }
         }
 
+        public void Motorcsre(string motortipus, string uzemanyag, double atlagfogyasztas)
+        {
+            this.motortipus = motortipus;
+            this.uzemanyag = uzemanyag;
+            this.atlagfogyasztas = atlagfogyasztas;
+        }
+
+        public double Fogyasztas(double uzemanyag, int tavolsag)
+        {
+            return uzemanyag / tavolsag * 100;
+        }
+
+        public bool AtlagFogyasztasOsszehasonlit(double uzemanyag, int tavolsag)
+        {
+            return Fogyasztas(uzemanyag, tavolsag) <= atlagfogyasztas;
+        }
+
+        public int UzemanyagKoltsegSzamitas(int tavolsag, int uzemanyagAra)
+        {
+            return (int)atlagfogyasztas * tavolsag * uzemanyagAra / 100;
+        }
+
+        public override string ToString()
+        {
+            return "Auto: " + Gyarto + ", " + Tipus + ", " + evjarat + ", " + Motortipus + ", " + Uzemanyag + ", " + Atlagfogyasztas;
+        }
     }
 }
