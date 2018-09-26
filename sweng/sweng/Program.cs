@@ -10,7 +10,7 @@ namespace sweng
     {
         static void Main(string[] args)
         {
-
+            
         }
     }
 }
